@@ -1,5 +1,5 @@
 # Audio Dataprocessing
-This program should work regardless of your OS. Please let me know if it doesn't.
+This program should work regardless of your OS. Please let David Yang know if it doesn't.
 
 ```c++
 You are receiving a numpy array of a 3-element numpy array tuple (ndarray, ndarray, ndarray) 
