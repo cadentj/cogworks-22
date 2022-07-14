@@ -7,7 +7,10 @@ where the spectrogram values have been log10ed.
 The tuple is in the format (Spectrogram, Frequencies, Times)
 ```
 
-1. Run dataproc.ipynb
-2. You now have a pickled tuple of spectrogram info :)
+## Procedures ⭐
+1. Run dataproc.ipynb 
+2. Ensure all the cells actually work
+3. Write specgrams.npy to local folder
+4. Load the pickled file and run fingerprinting notebook
 
 
