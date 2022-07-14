@@ -8,9 +8,8 @@ The tuple is in the format (Spectrogram, Frequencies, Times)
 ```
 
 ## Procedures ⭐
-1. Run dataproc.ipynb 
-2. Ensure all the cells actually work
-3. Write specgrams.npy to local folder
-4. Load the pickled file and run fingerprinting notebook
+1. Run dataproc.ipynb & ensure all the cells actually work
+2. Write specgrams.npy to local folder
+3. Load the pickled file and run fingerprinting notebook
 
 
