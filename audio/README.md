@@ -1,5 +1,5 @@
 # Audio Dataprocessing
-Please make sure to modify the os path directory to make sure it works for you. It should work...
+This program should work regardless of your OS. Please let me know if it doesn't.
 
 ```c++
 You are receiving a numpy array of a 3-element numpy array tuple (ndarray, ndarray, ndarray) 
