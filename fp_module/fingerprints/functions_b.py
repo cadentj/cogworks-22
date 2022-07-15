@@ -1,4 +1,5 @@
 import numpy as np
+from typing import Tuple, List
 
 def fanout(peaks: List[Tuple[int, int]], num_neighbors: int) -> List[Tuple[int, int, int]], List[int]: 
     
@@ -6,14 +7,14 @@ def fanout(peaks: List[Tuple[int, int]], num_neighbors: int) -> List[Tuple[int, 
     time_sigs = []
 
     for i in range(len(peaks) - num_neighbors):
-        peak[i][1] = f_i
+        f_i = peaks[i][1]
         
         for j in range(num_neighbors):
-            peak[i + j][1] = f_j
-            delta_t = peak[i + j][0] - peak[i][0]
+            f_j = peaks[i + j][1]
+            delta_t = peaks[i + j][0] - peaks[i][0]
             
             fingerprints.append((f_i, f_j, delta_t))
-            time_sigs.append(peak[i][0])
+            time_sigs.append(peaks[i][0])
             
     """
     fanout funtion with chunks:

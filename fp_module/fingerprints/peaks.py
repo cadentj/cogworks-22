@@ -49,12 +49,17 @@ def local_peak_locations(data_2d: np.ndarray, neighborhood: np.ndarray, amp_min:
 def cutoff(spectrogram: np.ndarray) :
     S = spectrogram.ravel()  
     ind = round(len(S) * 0.75)  
-    cutoff_log_amplitude = np.partition(log_S, ind)[ind]  
+    cutoff_log_amplitude = np.partition(S, ind)[ind]  
 
     return cutoff_log_amplitude
 
+
+
+
+
+
 def peaks(spectrogram: np.ndarray) :
     neighborhood_array = generate_binary_structure(2, 1) 
-    peak_locations = local_peak_locations(data, neighborhood_array, cutoff(spectrogram))  
+    peak_locations = local_peak_locations(spectrogram, neighborhood_array, cutoff(spectrogram))  
 
     return peak_locations
