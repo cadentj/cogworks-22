@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c47883a-948d-406d-8c8a-4011e4e11af4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/DataBase-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/DataBase-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matcher.npy" beforeDir="false" afterPath="$PROJECT_DIR$/matcher.npy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,12 +147,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657894526556</updated>
-      <workItem from="1657894535115" duration="10606000" />
+      <workItem from="1657894535115" duration="11306000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
