@@ -44,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Python.nptest">
+  <component name="RunManager" selected="Python.driver">
     <configuration name="driver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ryan-sus" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.nptest" />
         <item itemvalue="Python.driver" />
+        <item itemvalue="Python.nptest" />
         <item itemvalue="Python.functions" />
         <item itemvalue="Python.test" />
       </list>
