@@ -11,29 +11,31 @@ import matplotlib.mlab as mlab
 import librosa
 
 #Reads in files from audio/data/
-def getFiles() -> Sequence[str]:
-    os.chdir("..")
+def getFiles() -> (Sequence[str], Sequence[str]):
+   # os.chdir("..")
     path = Path.cwd() / "audio"/ "data"
     music = os.listdir(path)
     array = [os.path.join(path,item) for item in music if item[-4:]==".mp3"]
-    return array
+    names = [item[:-4] for item in music if item[-4:]==".mp3"]
+    print(names)
+    return array,names
 
 
 #takes in an array of file paths and outputs librosa audio info
-def toAudio(array: Sequence[str]) -> Sequence[Tuple[np.ndarray, int]]:
+def toAudio(array: Sequence[str], names: Sequence[str]) -> (Sequence[Tuple[np.ndarray, int]], Sequence[str]):
     audios = []
     for item in array:
         recorded, rate = librosa.load(item, sr =44100, mono = True)
         audios.append((recorded, rate))
-    return audios
+    return audios, names
 # `audios` is a numpy array of N audio samples
 
 #audios = toAudio(getFiles())
 
 
 #takes in an audio tuple(audio, sampling rate)
-#outputs a tuple of log10spectrogram, frequencies, and times
-def toSpectrogram(audio: Tuple[np.ndarray, int]) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+#outputs log10spectrogram
+def toSpectrogram(audio: Tuple[np.ndarray, int]) -> np.ndarray:
     recorded_audio = audio[0]
     sampling_rate = audio[1]
     S, freqs, times = mlab.specgram(
@@ -45,13 +47,13 @@ def toSpectrogram(audio: Tuple[np.ndarray, int]) -> Tuple[np.ndarray, np.ndarray
     )
     S = np.clip(S, 1e-20, None)
     S = np.log10(S)
-    return ((S,freqs,times))
+    return S
 
 
 #Probably used as a training sample thing
 #Takes in a list of audios and returns a list of spectrograms
-def getAllSamples(audios: Sequence[Tuple[np.ndarray, int]]) ->Sequence[Tuple[np.ndarray, np.ndarray, np.ndarray]]:
+'''def getAllSamples(audios: Sequence[Tuple[np.ndarray, int]], names: Sequence[str]) -> (Sequence[Tuple[np.ndarray, np.ndarray, np.ndarray]], Sequence[str]):
     ret = []
     for audio in audios:
         ret.append(toSpectrogram(audio))
-    return ret
+    return ret, names'''

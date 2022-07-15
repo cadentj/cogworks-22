@@ -1,6 +1,6 @@
 import numpy as np
 
-from scipy.ndimage.morphology import generate_binary_structure
+from scipy.ndimage.morphology import generate_binary_structure, iterate_structure
 
 from typing import Tuple, List
 
@@ -59,7 +59,7 @@ def cutoff(spectrogram: np.ndarray) :
 
 
 def peaks(spectrogram: np.ndarray) :
-    neighborhood_array = generate_binary_structure(2, 1) 
+    neighborhood_array = iterate_structure(generate_binary_structure(2, 1), 20)
     peak_locations = local_peak_locations(spectrogram, neighborhood_array, cutoff(spectrogram))  
 
     return peak_locations
