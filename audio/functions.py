@@ -12,7 +12,8 @@ import librosa
 
 #Reads in files from audio/data/
 def getFiles() -> Sequence[str]:
-    path = Path.cwd() / "data"
+    os.chdir("..")
+    path = Path.cwd() / "audio"/ "data"
     music = os.listdir(path)
     array = [os.path.join(path,item) for item in music if item[-4:]==".mp3"]
     return array
@@ -27,7 +28,7 @@ def toAudio(array: Sequence[str]) -> Sequence[Tuple[np.ndarray, int]]:
     return audios
 # `audios` is a numpy array of N audio samples
 
-audios = toAudio(getFiles())
+#audios = toAudio(getFiles())
 
 
 #takes in an audio tuple(audio, sampling rate)
