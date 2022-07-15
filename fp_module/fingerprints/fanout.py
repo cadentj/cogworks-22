@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Tuple, List
 
-def fanout(peaks: List[Tuple[int, int]], num_neighbors: int) -> List[List[Tuple[int, int, int]], List[int]]: 
+def fanout(peaks: List[Tuple[int, int]], num_neighbors: int) ->(List[Tuple[int, int, int]], List[int]):
     
     fingerprints = []
     time_sigs = []
