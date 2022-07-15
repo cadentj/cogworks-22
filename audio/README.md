@@ -8,8 +8,15 @@ The tuple is in the format (Spectrogram, Frequencies, Times)
 ```
 
 ## Procedures ⭐
-1. Run dataproc.ipynb & ensure all the cells actually work
-2. Write specgrams.npy to local folder
-3. Load the pickled file and run fingerprinting notebook
+1. call 'from audio import functions '
+2. call 'functions.TheFunctionYouWantToCall'
+3. You can look at the jupyter notebook for guidance. 
+If you just want the pickled 1gb spectrogram files(not recommended)
+you can build from dataproc.ipynb
+
+
+
+
+
 
 
