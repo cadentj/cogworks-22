@@ -45,8 +45,6 @@ def proc():
     return vectors
 
 
-print(proc())
-
 
 def get_cos_dist(a, b):
     result = b @ a
