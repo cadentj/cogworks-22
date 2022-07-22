@@ -73,7 +73,7 @@ def generateGraph(vectors):
 
             dist = get_cos_dist(vectors[i], vectors[j])
             if dist < threshold:
-                matrix[i][j] = 1
+                matrix[i][j] = 1/(dist**2)
                 neighbors.append(j)
         curnode = Node(i, neighbors, vectors[i])
         nodes.append(curnode)
