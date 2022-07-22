@@ -7,15 +7,68 @@ class Profile() :
         self.descriptions = []
         
     def data(self) :
-        return (self.name, self.descriptions)
+        return self.name, self.descriptions
     
     def add(self, description) :
         self.descriptions.append(description)
 
+    def avg(self):
+        return np.mean(self.descriptions, axis=0)
+
+
+class Database:
+  def __init__(self):
+    self.db = {}
+    # db = {bob: Profile(bob, [[1,2,3], [1,3,3]]),
+    #jake: Profile(jake, [[2,4,5]])}
+    #lets first add [1,2,2] to jake
+    # how do we do this ^
+    #addRecord("jake", [1,2,2])
+    
+    # we want to add david to db
+    # 
+
+    
+  #create a Profile for the person
+  def generatePerson(self, name):
+    #returns a profile object
+    return Profile(name)
+
+  #add record to database
+  def addRecord(self, name: str, vector: np.ndarray):
+    db = self.db
+    if name in db: 
+      db[name].add(vector)
+    elif name not in db: #uses generatePerson to create profile 
+      db[name] = self.generatePerson(name)
+      db[name].add(vector)
+    
+  #loops over each record in database
+  #generates "average vector"
+  #does dot product and evaluates who it is :)
+  def predict(self, unknown: np.ndarray):
+    #key, value = name, profile
+    min_dist = int(1e9)
+    min_name = ""
+    for name, profile in self.db.items():
+      av = profile.avg() 
+      cos_dist = self.get_cos_dist(av, unknown)
+      if cos_dist < min_dist: 
+        min_dist = cos_dist
+        min_name = name
+        #person is unknown, user prompted to enter name
+    if min_dist < 0.6:
+      return min_name
+    return "Unknown"
+  
+  def get_cos_dist(self, av, unknown):
+    result = unknown @ av
+    return 1 - result/(np.linalg.norm(av) * np.linalg.norm(unknown))
+
 
 def database(names) :
 
-    db = {}
+    db = Database()
 
     model = FacenetModel()
 
@@ -34,15 +87,11 @@ def database(names) :
             highest =  np.argmax(probabilities)
             descriptions = model.compute_descriptors(image, [boxes[highest]])
             
-
-        person = Profile(name)
         
         # prev vector in array in array 
         # to vector in array
         for description in descriptions : 
-            person.add(description)
-
-        db[name] = person
+        	db.addRecord(name, description)
 
     return db
 
