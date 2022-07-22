@@ -48,7 +48,6 @@ def proc():
 print(proc())
 
 
-# return cosine dist between vectors a,b
 def get_cos_dist(a, b):
     result = b @ a
     return 1 - result / (np.linalg.norm(a) * np.linalg.norm(b))  # norm not normal
@@ -69,16 +68,15 @@ def generateGraph(vectors):
     for i in range(len(vectors)):
         neighbors = []
         for j in range(len(vectors)):
-            # fill in line 69
-            dist = get_cos_dist()
-            if dist < threshold:  # 1 = has edge, 0 = default no edge
+            if i == j:
+                continue
+
+            dist = get_cos_dist(vectors[i], vectors[j])
+            if dist < threshold:
                 matrix[i][j] = 1
-                # add to neighbor list
-
-            # when you are done with the iteration
-            # create a node
-            # add node to nodes list
-
+                neighbors.append(j)
+        curnode = Node(i, neighbors, vectors[i])
+        nodes.append(curnode)
 
 class Node:
     """ Describes a node in a graph, and the edges connected
