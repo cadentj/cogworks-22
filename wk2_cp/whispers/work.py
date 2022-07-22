@@ -77,6 +77,7 @@ def generateGraph(vectors):
                 neighbors.append(j)
         curnode = Node(i, neighbors, vectors[i])
         nodes.append(curnode)
+    return matrix, nodes
 
 class Node:
     """ Describes a node in a graph, and the edges connected
