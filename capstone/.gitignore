@@ -1,0 +1,4 @@
+Food-Detection/output/model_final.pth
+Food-Detection/venv
+Food-Detection/train/images
+Food-Detection/val/images
