@@ -1,4 +1,4 @@
-#Food Detection 🥪
+# Food Detection 🥪
 
 Detectron2-based model trained on the [2021 AICROWD Dataset](https://www.aicrowd.com/challenges/food-recognition-challenge/dataset_files)
 
