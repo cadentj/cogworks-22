@@ -26,6 +26,8 @@ def text_generator(state_dict):
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top_k", type=int, default=40)
     args = parser.parse_args()
+    
+    text_list = []
 
     if args.quiet is False:
         print(args)
@@ -71,12 +73,16 @@ def text_generator(state_dict):
             text = enc.decode(out[i])
             if args.quiet is False:
                 print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
-            print(text)
+            text_list.append(text)
+         
+    return text_list
 
 if __name__ == '__main__':
     if os.path.exists('gpt2-pytorch_model.bin'):
         state_dict = torch.load('gpt2-pytorch_model.bin', map_location='cpu' if not torch.cuda.is_available() else None)
-        text_generator(state_dict)
+        t = text_generator(state_dict)
+        return t
+
     else:
         print('Please download gpt2-pytorch_model.bin')
         sys.exit()
