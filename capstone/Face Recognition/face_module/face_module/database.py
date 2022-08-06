@@ -67,8 +67,8 @@ def database(names) :
 
   model = FacenetModel()
 
-  for name in names : 
-    name_path = name + ".npy"
+  for name in names :
+    name_path = "./data/" + name + ".npy"
     vectorized_images = np.load(name_path, allow_pickle=True)
 
     descriptions = []
